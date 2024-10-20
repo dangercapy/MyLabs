@@ -20,4 +20,13 @@ In this case, the program will check if the following ip's:
 are online, and sent a message when this is no(longer) the case.
 You can, after changing these values to your own, also use the docker file to build & run the program. This is the recommended way to use the program.
 
+Using MyLabs with Docker:
+MyLabs was made to be used with Docker, you can do this the following way:
+
+First we need to build the image using the provided Dockerfile, we can achieve this using the following command:
+docker build -t mylabs -f Dockerfile .
+
+After running this command we can now start the image using the next command:
+docker run mylabs
+
 Made by dangercapy.
