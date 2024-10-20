@@ -1,16 +1,22 @@
+let version = "V1.0.0"
+console.log(version)
 
-console.log("MyLabs V1.0.0")
 
-// Bot stuff
+
 const telegrambot = require('node-telegram-bot-api');
 const token = require("./mylabs.json").telegramBotToken;
-console.log(token)
 const bot = new telegrambot(token, { polling: true });
+
+
+
 var exec = require('child_process').exec;
+
 let servers = require("./mylabs.json").servers;
 
+
+
 const chatId = require("./mylabs.json").telegramChatID;
-bot.sendMessage(chatId, "MyLabs is now running, made by dangercapy.")
+bot.sendMessage(chatId, "MyLabs " + version + " is now running.")
 
 
 
@@ -18,11 +24,14 @@ let timeOut = setInterval(() => {
     myLabsMain()
 }, 20000);
 
+
+
 let statusDictionary = {}
 for (let server of servers) {
     statusDictionary[server] = true
 }
-console.log(statusDictionary)
+
+
 
 function myLabsMain() {
     for (let server of servers) {
@@ -32,22 +41,27 @@ function myLabsMain() {
 
             if (stdout.includes("64 bytes from")) {
                 if (statusDictionary[server] == false) {
-                    bot.sendMessage(chatId, server + " connection has been recovered!")
+                    bot.sendMessage(chatId, "MyLabs " + version + ": " + server + " connection has been recovered!")
                 }
 
                 console.log("Ping Succesfull on " + server)
                 statusDictionary[server] = true
+                console.log("Status has been verified and/or changed.")
+                console.log(statusDictionary)
             }
 
             else {
+
                 if (statusDictionary[server] == true) {
                     console.error("!!! Ping failed on " + server + " !!!")
-                    bot.sendMessage(chatId, "Ping has failed failed on " + server + "!")
+                    bot.sendMessage(chatId, "MyLabs " + version + ": Ping has failed failed on " + server + "!")
                     statusDictionary[server] = false
+                    console.log("Status has been verified and/or changed.")
+                    console.log(statusDictionary)
                 }
 
                 else { 
-                    console.log("No message sent, " + server + " was already reported down.")
+                    console.log("No message sent, " + server + " has already been reported down earlier.")
                 }
             }
         })
