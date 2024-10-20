@@ -3,7 +3,7 @@ This is a very niche and un-likeable program to use in your environment.
 Simple explanation:
     In the ./mylabs.json file, you change the variables, to your own stuff. like so:
 ```json
-    {
+{
     "telegramBotToken": "Very-Long telegram api thing",
     "telegramChatID": "kinda shot chat id telegram thing",
     "servers": [
