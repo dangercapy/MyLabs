@@ -6,7 +6,7 @@ WORKDIR /home/node/app
 
 COPY package*.json ./
 COPY mylabs.js ./
-COPY servers.json ./
+COPY mylabs.json ./
 
 USER node
 

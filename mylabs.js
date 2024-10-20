@@ -1,4 +1,4 @@
-let version = "V1.0.0"
+let version = "V1.0.1"
 console.log(version)
 
 
@@ -37,31 +37,35 @@ function myLabsMain() {
     for (let server of servers) {
         exec("ping -c 3 " + server, function (err, stdout, stderr) {
             const chatId = require("./mylabs.json").telegramChatID;
-            console.log("Pinging " + server)
+
+
 
             if (stdout.includes("64 bytes from")) {
                 if (statusDictionary[server] == false) {
                     bot.sendMessage(chatId, "MyLabs " + version + ": " + server + " connection has been recovered!")
                 }
 
-                console.log("Ping Succesful on " + server)
+                console.log("up " + server)
                 statusDictionary[server] = true
-                console.log("Status has been verified and/or changed.")
-                console.log(statusDictionary)
             }
+
+
 
             else {
 
+
+
                 if (statusDictionary[server] == true) {
-                    console.error("!!! Ping failed on " + server + " !!!")
+                    console.error("down " + server)
                     bot.sendMessage(chatId, "MyLabs " + version + ": Ping has failed failed on " + server + "!")
                     statusDictionary[server] = false
-                    console.log("Status has been verified and/or changed.")
-                    console.log(statusDictionary)
                 }
 
+
+
                 else { 
-                    console.log("No message sent, " + server + " has already been reported down earlier.")
+                    console.log(server + " already false.")
+
                 }
             }
         })
