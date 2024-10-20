@@ -44,7 +44,7 @@ function myLabsMain() {
                     bot.sendMessage(chatId, "MyLabs " + version + ": " + server + " connection has been recovered!")
                 }
 
-                console.log("Ping Succesfull on " + server)
+                console.log("Ping Succesful on " + server)
                 statusDictionary[server] = true
                 console.log("Status has been verified and/or changed.")
                 console.log(statusDictionary)
