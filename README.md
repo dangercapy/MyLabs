@@ -5,7 +5,7 @@ Simple explanation:
 ```json
 {
     "telegramBotToken": "Very-Long telegram api thing",
-    "telegramChatID": "kinda shot chat id telegram thing",
+    "telegramChatID": "kinda short chat id telegram thing",
     "servers": [
     "192.168.0.1",
     "192.168.0.254",
