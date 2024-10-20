@@ -1,0 +1,8 @@
+{
+    "telegramBotToken": "INSERTBOTTOKEN",
+    "telegramChatID": "INSERTCHATID",
+    "servers": [
+    "cloudflare.com",
+    "thisdomaindoesnotexist.local"
+    ]
+}

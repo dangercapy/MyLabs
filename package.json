@@ -1,0 +1,14 @@
+{
+  "name": "mylabs",
+  "version": "1.0.0",
+  "description": "MyLabs made by dangercapy",
+  "main": "mylabs.js",
+  "scripts": {
+    "start": "node ./mylabs.js"
+  },
+  "author": "dangercapy",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}
