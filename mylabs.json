@@ -1,4 +1,6 @@
 {
+    "frontEndHost": "FRONTENDIP",
+    "apiPort": "APIPORT",
     "telegramBotToken": "INSERTBOTTOKEN",
     "telegramChatID": "INSERTCHATID",
     "servers": [

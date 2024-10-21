@@ -29,6 +29,11 @@ In this case, the program will check if the hosts from the following list are on
 
 You can, after changing these values to your own, also use the docker file to build & run the program. This is the recommended way to use the program.
 
+Using the MyLabs API with (coming soon) MyLabs Gui:
+If you want to use the MyLabs API you will have to set the frontEndHost and apiPort in the mylabs.json file.
+frontEndHost is the host on which your web-server with the gui will run.
+apiPort is the port you will use to connect to the api hosted on the backend. (this app.)
+
 Using MyLabs with Docker:
 MyLabs was made to be used with Docker, you can do this the following way:
 
