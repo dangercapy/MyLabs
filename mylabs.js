@@ -1,10 +1,10 @@
-let version = "V1.0.1"
+let version = "V1.0.2"
 console.log(version)
 const http = require("http");
 const telegrambot = require('node-telegram-bot-api');
 const token = require("./mylabs.json").telegramBotToken;
 const bot = new telegrambot(token, { polling: true });
-const host = 'localhost';
+const host = require("./mylabs.json").hostip;
 const port = 8000;
 
 var exec = require('child_process').exec;
@@ -18,7 +18,7 @@ let timeOut = setInterval(() => {
 
 const requestListener = function (req, res) {
     res.writeHead(200, {
-        'Access-Control-Allow-Origin': 'http://' + require('./myLabs.json').frontEndHost + ':' + require('./mylabs.json').apiPort,
+        'Access-Control-Allow-Origin': 'http://' + require('./mylabs.json').corshost + ':' + require('./mylabs.json').guiport,
         'Content-Type': 'application/json'
     });
     res.end(JSON.stringify(statusDictionary));
@@ -43,7 +43,7 @@ function myLabsMain() {
 
             if (stdout.includes("64 bytes from")) {
                 if (statusDictionary[server] == false) {
-                    bot.sendMessage(chatId, "MyLabs " + version + ": " + server + " connection has been recovered!")
+                    bot.sendMessage(chatId, version + ": " + server + " connection has been recovered!")
                 }
 
                 console.log("up " + server)
@@ -58,7 +58,7 @@ function myLabsMain() {
 
                 if (statusDictionary[server] == true) {
                     console.error("down " + server)
-                    bot.sendMessage(chatId, "MyLabs " + version + ": Ping has failed failed on " + server + "!")
+                    bot.sendMessage(chatId, version + ": Ping has failed on " + server + "!")
                     statusDictionary[server] = false
                 }
 

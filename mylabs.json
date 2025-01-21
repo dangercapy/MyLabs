@@ -1,8 +1,9 @@
 {
-    "frontEndHost": "FRONTENDIP",
-    "apiPort": "APIPORT",
-    "telegramBotToken": "INSERTBOTTOKEN",
-    "telegramChatID": "INSERTCHATID",
+    "hostip": "INSERT IP OF MACHINE WHERE MYLABS IS HOSTED",
+    "corshost": "INSERT PORT AND IP OF MACHINE WHERE GUI IS HOSTED",
+    "guiport": "HTTP PORT FOR GUI SITE",
+    "telegramBotToken": "INSERT BOT TOKEN",
+    "telegramChatID": "INSERT CHAT ID",
     "servers": [
     "cloudflare.com",
     "thisdomaindoesnotexist.local"
